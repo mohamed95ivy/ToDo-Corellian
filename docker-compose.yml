@@ -1,0 +1,23 @@
+services:
+  api:
+    build: ./ToDo.Api
+    container_name: todo_api
+    ports:
+      - "5292:8080"           # host:container
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - ConnectionStrings__Default=Data Source=/data/todo.db   # <— important
+    volumes:
+      - ./data:/data  
+
+  web:
+    build:
+      context: ./todo-web
+      args:
+        GRAPHQL_HTTP: http://api:8080/graphql
+        GRAPHQL_WS:   ws://api:8080/graphql
+    container_name: todo_web
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
