@@ -6,7 +6,7 @@ Supports **create, update, and realtime sync** via GraphQL Subscriptions.
 ---
 
 ## 🚀 Tech Stack
-- **Backend:** ASP.NET Core 8, Hot Chocolate GraphQL, EF Core, SQLite
+- **Backend:** ASP.NET Core 9, Hot Chocolate GraphQL, EF Core, SQLite
 - **Frontend:** React (Vite + TypeScript), Relay, React Spectrum UI
 - **Realtime:** GraphQL Subscriptions (WebSockets)
 - **Deployment:** Dockerfiles + Docker Compose
@@ -89,3 +89,13 @@ mutation($id: ID!) {
 # Subscribe
 subscription { taskCreated { id title status } }
 ```
+
+### 3) ⚡ Features
+- Create + toggle task status
+- Realtime updates across browser tabs
+- SQLite persistence (volume-mounted in Docker)
+- Works locally & in containers
+
+### 4) 🧠 AI Tools Used
+- ChatGPT (GPT-5) for scaffolding GraphQL schema, Relay config, CORS/WS setup, and Dockerfiles.
+- Used AI to speed up boilerplate and debugging → Focused on core logic & realtime integration.
