@@ -99,3 +99,42 @@ subscription { taskCreated { id title status } }
 ### 4) 🧠 AI Tools Used
 - ChatGPT (GPT-5) for scaffolding GraphQL schema, Relay config, CORS/WS setup, and Dockerfiles.
 - Used AI to speed up boilerplate and debugging → Focused on core logic & realtime integration.
+
+### 5) Approach
+🧠 My Approach to Problem-Solving
+
+I approached this assessment in incremental phases:
+
+Backend API & Data Model
+
+Created TaskItem entity (ID, Title, Description, Status).
+
+Added GraphQL schema with getAllTasks, createTask, updateTaskStatus, and real-time taskCreated/taskUpdated subscriptions.
+
+Used SQLite for persistence (works locally + in Docker).
+
+Frontend with Relay
+
+Configured Relay with Vite (vite-plugin-relay) for GraphQL queries/mutations/subscriptions.
+
+Built UI with Adobe React Spectrum: form for new tasks + task list with toggle buttons.
+
+Used refetch on create for reliability and subscriptions for cross-tab updates.
+
+Dockerization
+
+Separate Dockerfiles for API and frontend.
+
+Docker Compose orchestrates API + frontend + SQLite volume for persistence.
+
+Real-time Sync
+
+Used Hot Chocolate’s AddInMemorySubscriptions() and UseWebSockets() for subscriptions.
+
+Client uses Relay requestSubscription for real-time updates.
+
+Final Polish
+
+Added CORS config for local + Docker environments.
+
+Added README with setup, schema, and testing instructions.
